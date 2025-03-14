@@ -1,4 +1,6 @@
 let boardCompleted = [];
+let player1 = createPlayer(window.prompt("Player 1"))
+//let player2 = createPlayer(window.prompt("Player 2"))
 
 function generateSudoku() {
     let board = Array.from({ length: 9 }, () => Array(9).fill("_"));
@@ -100,6 +102,9 @@ function createBoard(board) {
             const input = document.createElement("input");
             input.id = `cell-${i}-${j}`;
             input.type = "number"; // numerischer input
+            input.addEventListener("mousewheel", function (event) {
+                    this.blur()
+            });
             // TODO: prüfen, wie man den Scroll-Button entfernen kann
             input.min = "1"; // numerische Inputgrenze
             input.max = "9"; // numerische Inputgrenze
@@ -115,8 +120,11 @@ function createBoard(board) {
                 console.log("correctValue: " + correctValue);
                 if (input != correctValue) {
                     this.value = "";
-                    alert("Falsche Eingabe!");
-            }
+                    player1.subScore(1);
+                }else{
+                    player1.addScore(1);
+                    console.log("Score: " + player1.score);
+                }
             };
             if (num !== '_') {
                 input.value = num;
@@ -137,6 +145,21 @@ function copyBoard(board) {
         newBoard.push(row);
     }
     return newBoard;
+}
+
+function createPlayer(name) {
+    let player = {
+        name: name,
+        score: 0,
+        addScore: function(x) {
+            this.score += x;
+        },
+        subScore: function(x) {
+            this.score -= x;
+        }
+
+    };
+    return player;
 }
 
 document.addEventListener("DOMContentLoaded", generateSudoku);

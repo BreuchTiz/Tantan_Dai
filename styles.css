@@ -83,6 +83,13 @@ button:hover {
     background-color: #0056b3;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 /*
 4. Sudoku-Felder (Eingabefelder)
 ✅ width: 40px; und height: 40px;: Jedes Eingabefeld ist 40x40 Pixel groß.
