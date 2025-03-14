@@ -1,8 +1,12 @@
+let boardCompleted = [];
+
 function generateSudoku() {
     let board = Array.from({ length: 9 }, () => Array(9).fill("_"));
     fillBoard(board);
-    removeNumbers(board, 50); // Entferne 50 Zahlen für eine lösbare Herausforderung
-    return board;
+    boardCompleted = copyBoard(board);
+    console.table(boardCompleted);
+    removeNumbers(board, 5); // Entferne 50 Zahlen für eine lösbare Herausforderung
+    createBoard(board);
 }
 
 function fillBoard(board) {
@@ -12,8 +16,8 @@ function fillBoard(board) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
+
     }
-    
     function solve(row, col) {
         if (row === 9) return true;
         if (col === 9) return solve(row + 1, 0);
@@ -86,14 +90,54 @@ function solveSudoku(board, callback) {
     }
     solve(0, 0);
 }
-/*
-let board = generateSudoku();
-for(let i = 0; i < 9; i++){
-    let row = "";
-    for(let j = 0; j < 9; j++){
-        row += board[i][j] + " ";
-    }
-    console.log(row);
+
+function createBoard(board) {
+    const container = document.getElementById("sudoku-board");
+    container.innerHTML = "";
+    
+    board.forEach((row, i) => {
+        row.forEach((num, j) => {
+            const input = document.createElement("input");
+            input.id = `cell-${i}-${j}`;
+            input.type = "number"; // numerischer input
+            // TODO: prüfen, wie man den Scroll-Button entfernen kann
+            input.min = "1"; // numerische Inputgrenze
+            input.max = "9"; // numerische Inputgrenze
+            input.maxLength = 1;
+            input.classList.add("cell");
+            input.dataset.row = i;
+            input.dataset.col = j;
+            input.onchange = function() {
+                console.table(boardCompleted);
+                let input = this.value;
+                console.log("input: " + input);
+                let correctValue = boardCompleted[i][j];
+                console.log("correctValue: " + correctValue);
+                if (input != correctValue) {
+                    this.value = "";
+                    alert("Falsche Eingabe!");
+            }
+            };
+            if (num !== '_') {
+                input.value = num;
+                input.setAttribute("readonly", true);
+            }
+            container.appendChild(input);
+        });
+    });
 }
-    */
-export { generateSudoku };
+
+function copyBoard(board) {
+    let newBoard = [];
+    for(var i in board) {
+        let row = [];
+        for(var j in board[i]) {
+            row.push(board[i][j]);
+        }
+        newBoard.push(row);
+    }
+    return newBoard;
+}
+
+document.addEventListener("DOMContentLoaded", generateSudoku);
+//document.addEventListener("input", checkInput); // löst bei jedem Input die CheckInput-Methode aus
