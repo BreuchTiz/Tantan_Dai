@@ -1,14 +1,19 @@
 let boardCompleted = [];
-let player1 = createPlayer(window.prompt("Player 1"))
+let difficulty = 25;
+//let player1 = createPlayer(window.prompt("Player 1"));
+let player1 = createPlayer("Player 1");
 //let player2 = createPlayer(window.prompt("Player 2"))
+let inputCells = [];
 
 function generateSudoku() {
     let board = Array.from({ length: 9 }, () => Array(9).fill("_"));
     fillBoard(board);
     boardCompleted = copyBoard(board);
     console.table(boardCompleted);
-    removeNumbers(board, 5); // Entferne 50 Zahlen für eine lösbare Herausforderung
+    removeNumbers(board, difficulty); // Entferne 50 Zahlen für eine lösbare Herausforderung
     createBoard(board);
+    inputCells = document.querySelectorAll(".cell");
+    console.log(inputCells);
 }
 
 function fillBoard(board) {
@@ -93,17 +98,54 @@ function solveSudoku(board, callback) {
     solve(0, 0);
 }
 
+inputCells.forEach(cell => {
+    cell.addEventListener("keydown", function(event) {
+        let row = parseInt(this.dataset.row);
+        let col = parseInt(this.dataset.col);
+        let nextCell = document.getElementById(`cell-${row
+            + 1}-${col}`);
+        event.preventDefault();
+        switch (event.key) {
+            case "ArrowUp":
+                moveFocus(row, col, -1, 0);
+                break;
+            case "ArrowDown":
+                moveFocus(row, col, 1, 0);
+                break;
+            case "ArrowLeft":
+                moveFocus(row, col, 0, -1);
+                break;
+            case "ArrowRight":
+                moveFocus(row, col, 0, 1);
+                break;
+            default:
+                break;
+        }
+    }
+    );
+});
+
 function createBoard(board) {
     const container = document.getElementById("sudoku-board");
     container.innerHTML = "";
-    
     board.forEach((row, i) => {
         row.forEach((num, j) => {
             const input = document.createElement("input");
             input.id = `cell-${i}-${j}`;
             input.type = "number"; // numerischer input
             input.addEventListener("mousewheel", function (event) {
-                    this.blur()
+                    this.blur();
+            });
+            input.addEventListener("onkeydown", function (event) {
+                event.preventDefault();
+                switch(event.key) {
+                    case "ArrowUp":
+                    case "ArrowDown":
+                    case "ArrowLeft":
+                    case "ArrowRight":
+                        break;
+                }
+                this.blur();
             });
             // TODO: prüfen, wie man den Scroll-Button entfernen kann
             input.min = "1"; // numerische Inputgrenze
@@ -112,17 +154,19 @@ function createBoard(board) {
             input.classList.add("cell");
             input.dataset.row = i;
             input.dataset.col = j;
-            input.onchange = function() {
+            input.oninput = function() {
                 console.table(boardCompleted);
                 let input = this.value;
                 console.log("input: " + input);
                 let correctValue = boardCompleted[i][j];
                 console.log("correctValue: " + correctValue);
                 if (input != correctValue) {
-                    this.value = "";
+                    this.style.backgroundColor = "red";
                     player1.subScore(1);
                 }else{
                     player1.addScore(1);
+                    this.setAttribute("readonly", true);
+                    this.style.backgroundColor = "lightgreen";
                     console.log("Score: " + player1.score);
                 }
             };
