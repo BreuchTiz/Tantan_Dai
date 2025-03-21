@@ -1,5 +1,5 @@
 let boardCompleted = [];
-let difficulty = 25;
+let difficulty = 1;
 //let player1 = createPlayer(window.prompt("Player 1"));
 let player1 = createPlayer("Player 1");
 //let player2 = createPlayer(window.prompt("Player 2"))
@@ -205,6 +205,26 @@ function createPlayer(name) {
     };
     return player;
 }
+
+function updateScoreboard(players) {
+    const scoreboardList = document.getElementById("scoreboard-list");
+    scoreboardList.innerHTML = ""; // Clear existing entries
+    players.forEach(player => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${player.name}: ${player.score}`;
+        scoreboardList.appendChild(listItem);
+    });
+}
+
+fetch('http://webtreedesign.de:6969/players')
+    .then(res => res.json())
+    .then(data => {
+      console.log('Spielerdaten:', data);
+      updateScoreboard(data); // Populate the scoreboard with API data
+    })
+    .catch(err => {
+      console.error('Fehler beim Laden der Spielerdaten:', err);
+    });
 
 document.addEventListener("DOMContentLoaded", generateSudoku);
 //document.addEventListener("input", checkInput); // löst bei jedem Input die CheckInput-Methode aus

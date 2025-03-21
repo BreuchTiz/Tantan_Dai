@@ -1,0 +1,16 @@
+# 1️⃣ Node.js als Basis
+FROM node:18
+WORKDIR /app
+
+# 2️⃣ Installiere Backend-Abhängigkeiten
+COPY package.json package-lock.json ./
+RUN npm install
+
+# 3️⃣ Kopiere den Backend-Code
+COPY . .
+
+# 4️⃣ Exponiere den Port für Express
+EXPOSE 3000
+
+# 5️⃣ Starte das Backend
+CMD ["node", "api.js"]
