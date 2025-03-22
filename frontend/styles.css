@@ -90,6 +90,20 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
+#scoreboard{
+    text-align: left;
+    #scoreboard-list{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        
+        p{
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+    }
+}
+
 /*
 4. Sudoku-Felder (Eingabefelder)
 ✅ width: 40px; und height: 40px;: Jedes Eingabefeld ist 40x40 Pixel groß.
@@ -115,4 +129,9 @@ input::-webkit-inner-spin-button {
 7. Button-Hover-Effekt
 ✅ button:hover: Dieser Stil wird angewendet, wenn die Maus über den Button fährt.
 ✅ background-color: #0056b3;: Ändert die Hintergrundfarbe in ein dunkleres Blau (#0056b3).
+
+
+
+
+8.Scoreboardlist
 */

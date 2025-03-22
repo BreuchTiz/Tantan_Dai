@@ -1,6 +1,6 @@
 // Global Variables
 let boardCompleted = [];
-let difficulty = 6;
+let difficulty = 10;
 let player1 = createPlayer("Player 1");
 let inputCells = [];
 let timerInterval;
@@ -96,7 +96,7 @@ function handleInput(cell, row, col) {
  * Ends the game, stops the timer, and saves the player's score and time to the server.
  */
 function finishGame() {
-  const elapsedTime = stopTimer();
+  const elapsedTime = stopTimer().toFixed(1); // Format elapsed time to one decimal place
   const playerName = prompt(
     "Herzlichen Glückwunsch! Bitte gib deinen Namen ein:"
   );
@@ -107,7 +107,7 @@ function finishGame() {
   const playerData = {
     name: playerName,
     score: player1.score,
-    time: elapsedTime,
+    time: parseFloat(elapsedTime), // Ensure time is stored as a number
   };
   fetch("https://sososo.webtreedesign.de/players", {
     method: "POST",
@@ -147,26 +147,26 @@ function refreshScoreboard() {
 // Timer Functions
 
 /**
- * Starts the game timer and updates the timer display every second.
+ * Starts the game timer and updates the timer display every second with millisecond precision.
  */
 function startTimer() {
   startTime = Date.now();
   timerInterval = setInterval(() => {
-    const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(1); // Include milliseconds and format to one decimal place
     document.getElementById(
       "timer"
     ).textContent = `Zeit: ${elapsedTime} Sekunden`;
-  }, 1000);
+  }, 100); // Update every 100ms for better precision
 }
 
 /**
- * Stops the game timer and returns the elapsed time in seconds.
+ * Stops the game timer and returns the elapsed time in seconds as a number.
  *
  * @returns {number} The elapsed time in seconds.
  */
 function stopTimer() {
   clearInterval(timerInterval);
-  return Math.floor((Date.now() - startTime) / 1000);
+  return (Date.now() - startTime) / 1000; // Return elapsed time as a number
 }
 
 // Sudoku Logic
@@ -318,16 +318,38 @@ function createPlayer(name) {
 }
 
 /**
- * Updates the scoreboard in the DOM with the latest player data.
+ * Updates the scoreboard in the DOM with the latest player data, sorted by score (descending) and time (ascending).
+ * Adds icons for the top 3 players and displays time with one decimal place.
  *
  * @param {Array} players - An array of player objects.
  */
 function updateScoreboard(players) {
   const scoreboardList = document.getElementById("scoreboard-list");
   scoreboardList.innerHTML = "";
-  players.forEach((player) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = `${player.name}: ${player.score}, ${player.time} Sekunden`;
+
+  // Sort players by score in descending order, and by time in ascending order for ties
+  players.sort((a, b) => {
+    if (b.score === a.score) {
+      return a.time - b.time; // Sort by time (ascending) if scores are equal
+    }
+    return b.score - a.score; // Sort by score (descending)
+  });
+
+  players.forEach((player, index) => {
+    const listItem = document.createElement("p");
+
+    // Add icons for the top 3 players
+    let icon = "";
+    if (index === 0) icon = "👑 ";
+    else if (index === 1) icon = "🥈 ";
+    else if (index === 2) icon = "🥉 ";
+    else icon = "💥 ";
+
+console.log("player.time: " + player.time);
+    // Format time to one decimal place
+    const formattedTime = player.time.toFixed(1);
+
+    listItem.textContent = `${icon}${player.name}: ${player.score} Punkte, ${formattedTime}s`;
     scoreboardList.appendChild(listItem);
   });
 }

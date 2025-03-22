@@ -35,11 +35,11 @@ app.get('/players', async (req, res) => {
 app.post('/players', express.json(), async (req, res) => {
   try {
     const { name, score, time } = req.body;
-    if (!name || score == null) {
-      return res.status(400).send('Name und Score sind erforderlich');
+    if (!name || score == null || time == null) {
+      return res.status(400).send('Name, Score und Zeit sind erforderlich');
     }
     const collection = db.collection('player');
-    const result = await collection.insertOne({ name, score, time });
+    const result = await collection.insertOne({ name, score, time: parseFloat(time) }); // Ensure time is stored as a float
     res.status(201).json(result);
   } catch (err) {
     console.error('❌ Fehler beim Speichern des Spielers:', err);
