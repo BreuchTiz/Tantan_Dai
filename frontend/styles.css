@@ -2,8 +2,8 @@ body {
     font-family: 'Arial', Arial, Helvetica, sans-serif;
     text-align: center;
     background-color: #f4f4f4;
-    margin: 10px; /* Abstand um den gesamten Body */
-    height: 100vh;
+    margin: 0;
+    height: auto;
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
@@ -100,6 +100,7 @@ input::-webkit-inner-spin-button {
     position: absolute;
     left: 0;
     top:0; 
+    max-width: 300px;
 
     h2{
         margin-top: 0;
@@ -110,6 +111,7 @@ input::-webkit-inner-spin-button {
         flex-direction: column;
         
         p{
+            word-break: break-all;
             margin-top: 3px;
             margin-bottom: 3px;
         }
@@ -121,6 +123,49 @@ input::-webkit-inner-spin-button {
         margin-top: 0;
     }
 }
+
+.donation-container {
+    text-align: center;
+    font-family: sans-serif;
+    margin: 2em 0;
+
+    img{
+        margin: 10px;
+        padding: 10px;
+        border: lightblue 1px solid;
+        border-radius: 10px;
+    }
+    img:hover{
+        background-color: lightblue;
+    }
+  }
+  
+  .donation-text {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+  }
+  
+  .paypal-donate-button {
+    background-color: #0070ba;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .paypal-donate-button:hover {
+    background-color: #005c9c;
+  }
+  
+  .donation-hint {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.5em;
+  }
+  
 
 /*
 4. Sudoku-Felder (Eingabefelder)

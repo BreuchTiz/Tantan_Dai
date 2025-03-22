@@ -23,14 +23,25 @@ fetch("https://sososo.webtreedesign.de/players")
  * Generates a new Sudoku board, initializes the game, and starts the timer.
  */
 function generateSudoku() {
+  console.log(`
+   
+░██████╗██╗░░░██╗██████╗░░█████╗░██╗░░██╗██╗░░░██╗
+██╔════╝██║░░░██║██╔══██╗██╔══██╗██║░██╔╝██║░░░██║
+╚█████╗░██║░░░██║██║░░██║██║░░██║█████═╝░██║░░░██║
+░╚═══██╗██║░░░██║██║░░██║██║░░██║██╔═██╗░██║░░░██║
+██████╔╝╚██████╔╝██████╔╝╚█████╔╝██║░╚██╗╚██████╔╝
+╚═════╝░░╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝░╚═════╝░
+    `);
+    console.log("𝕓𝕪: 𝕀𝕋𝔽𝕆𝟚")
+    
   let board = Array.from({ length: 9 }, () => Array(9).fill("_"));
   fillBoard(board);
   boardCompleted = copyBoard(board);
-  console.table(boardCompleted);
+  // console.table(boardCompleted);
   removeNumbers(board, difficulty);
   createBoard(board);
   inputCells = document.querySelectorAll(".cell");
-  console.log(inputCells);
+  // console.log(inputCells);
   startTimer();
 }
 
@@ -346,7 +357,7 @@ function updateScoreboard(players) {
     else if (index === 2) icon = "🥉 ";
     else icon = "💥 ";
 
-console.log("player.time: " + player.time);
+// console.log("player.time: " + player.time);
     // Format time to one decimal place
     const formattedTime = player.time.toFixed(1);
 
