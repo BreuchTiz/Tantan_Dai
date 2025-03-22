@@ -184,6 +184,7 @@ input::-webkit-inner-spin-button {
 /* Media query for screens narrower than 1026px */
 @media (max-width: 1026px) {
   .scoreboard {
+    text-align: center;
     position: static; /* Remove absolute positioning */
     margin-top: 20px; /* Add spacing above the scoreboard */
   }
