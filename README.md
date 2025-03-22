@@ -70,24 +70,6 @@ Du kannst das Spiel auch lokal öffnen, indem du die Datei `index.html` im `fron
 - Testen der Spielfunktionalität und der API.
 - Deployment auf einem Webserver (z. B. `https://sudoku.webtreedesign.de`).
 
-## 💡 Nützliche Links
-- [Projekt-Website](https://sudoku.webtreedesign.de)
-- [API](https://sososo.webtreedesign.de/players)
-- [PayPal-Unterstützung](https://www.paypal.com/paypalme/tzbre)
-
-## ❤️ Unterstützung
-Dieses Projekt ist kostenlos nutzbar. Wenn du möchtest, kannst du meine Arbeit mit einem freiwilligen Beitrag unterstützen:
-[PayPal](https://www.paypal.com/paypalme/tzbre)
-
-## 👥 Mitwirkende
-- Johannes
-- Justin
-- Tizian
-- Walter
-
-## 📜 Lizenz
-Dieses Projekt ist unter der MIT-Lizenz veröffentlicht.
-
 ## Sonstiges
 
 ### 🌐 SSL-Zertifikat und Nginx Proxy
@@ -111,3 +93,20 @@ Die `docker-compose.yml`-Datei enthält die Konfiguration für den Nginx-Proxy u
 - `HTTPS_METHOD`: Methode für HTTPS-Weiterleitungen (z. B. `redirect`).
 
 > **Hinweis**: Die vollständige `docker-compose.yml`-Datei wurde nicht bereitgestellt, da sie direkt auf dem Server liegt.
+## 💡 Nützliche Links
+- [Projekt-Website](https://sudoku.webtreedesign.de)
+- [API](https://sososo.webtreedesign.de/players)
+- [PayPal-Unterstützung](https://www.paypal.com/paypalme/tzbre)
+
+## ❤️ Unterstützung
+Dieses Projekt ist kostenlos nutzbar. Wenn du möchtest, kannst du meine Arbeit mit einem freiwilligen Beitrag unterstützen:
+[PayPal](https://www.paypal.com/paypalme/tzbre)
+
+## 👥 Mitwirkende
+- Johannes
+- Justin
+- Tizian
+- Walter
+
+## 📜 Lizenz
+Dieses Projekt ist unter der MIT-Lizenz veröffentlicht.
