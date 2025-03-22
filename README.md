@@ -25,50 +25,19 @@ sudoku/
 ├── README.md            # Projektbeschreibung
 ```
 
-## 🚀 Installation und Nutzung
+## 🚀 Nutzung
 
-### 🖥️ Frontend
-1. Navigiere in das `frontend`-Verzeichnis:
-   ```bash
-   cd sudoku/frontend
-   ```
-2. Starte das Frontend mit Docker:
-   ```bash
-   docker build -t sudoku-frontend .
-   docker run -p 8080:8080 sudoku-frontend
-   ```
-3. Öffne das Spiel im Browser:
-   ```
-   http://localhost:8080
-   ```
-
-### 🔧 Backend
-1. Navigiere in das `backend`-Verzeichnis:
-   ```bash
-   cd sudoku/backend
-   ```
-2. Starte das Backend mit Docker:
-   ```bash
-   docker build -t sudoku-backend .
-   docker run -p 3000:3000 sudoku-backend
-   ```
-3. Die API ist erreichbar unter:
-   ```
-   http://localhost:3000
-   ```
-
-### 🗄️ Datenbank
-- Stelle sicher, dass MongoDB läuft und die Verbindung in `api.js` korrekt ist.
-- Standard-MongoDB-Verbindung:
-  ```
-  mongodb://admin:geheim@webtreedesign.de:27012/?authSource=admin
-  ```
-
-### 🖱️ Alternative: Lokales Öffnen
+### 🖥️ Lokales Öffnen ohne Docker...
 Du kannst das Spiel auch lokal öffnen, indem du die Datei `index.html` im `frontend`-Ordner direkt in einem Browser wie Chrome oder Firefox öffnest:
 1. Navigiere im Datei-Explorer zum `frontend`-Ordner.
 2. Doppelklicke auf die Datei `index.html`.
 3. Das Spiel wird im Standardbrowser geöffnet.
+### 🗄️ Datenbank
+- Stelle sicher, dass MongoDB läuft und die Verbindung in `api.js` korrekt ist.
+- Standard-MongoDB-Verbindung:
+  ```
+  mongodb://admin:******@webtreedesign.de:27012/?authSource=admin
+  ```
 
 ## 🛠️ Technologien
 - **Frontend**: HTML, CSS, JavaScript
@@ -103,6 +72,7 @@ Du kannst das Spiel auch lokal öffnen, indem du die Datei `index.html` im `fron
 
 ## 💡 Nützliche Links
 - [Projekt-Website](https://sudoku.webtreedesign.de)
+- [API](https://sososo.webtreedesign.de/players)
 - [PayPal-Unterstützung](https://www.paypal.com/paypalme/tzbre)
 
 ## ❤️ Unterstützung
@@ -111,9 +81,9 @@ Dieses Projekt ist kostenlos nutzbar. Wenn du möchtest, kannst du meine Arbeit 
 
 ## 👥 Mitwirkende
 - Johannes
+- Justin
 - Tizian
 - Walter
-- Justin
 
 ## 📜 Lizenz
 Dieses Projekt ist unter der MIT-Lizenz veröffentlicht.
