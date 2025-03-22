@@ -7,23 +7,21 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Sudoku</h1>
-    <div class="sudoku-container" id="sudoku-board"></div>
-    <br />
-    <div
-      class="scoreboard"
-      id="scoreboard"
-      style="position: absolute; right: 0; top: 20px"
-    >
-      <h2>Scoreboard</h2>
-      <p id="timer">Zeit: 0 Sekunden</p> <!-- Timer display -->
-      <div id="scoreboard-list"></div>
+    <div class="body-container">
+      <h1>Sudoku</h1>
+      <div class="sudoku-container" id="sudoku-board"></div>
+      <br />
+      <button onclick="giveUpSudokuGame()">Aufgeben</button>
+      <button onclick="generateSudoku()">neues Spiel</button>
+      <br />
+      <br />
+      <div class="scoreboard" id="scoreboard">
+        <h2>Scoreboard</h2>
+        <p id="timer">Zeit: 0 Sekunden</p>
+        <!-- Timer display -->
+        <div id="scoreboard-list"></div>
+      </div>
     </div>
-
-    <br />
-    <button onclick="giveUpSudokuGame()">Aufgeben</button>
-    <button onclick="generateSudoku()">neues Spiel</button>
-
     <script src="sudoku.js"></script>
   </body>
 </html>

@@ -96,6 +96,7 @@ function handleInput(cell, row, col) {
  * Ends the game, stops the timer, and saves the player's score and time to the server.
  */
 function finishGame() {
+  clearInterval(timerInterval); // Ensure the timer stops when the game ends
   const elapsedTime = stopTimer().toFixed(1); // Format elapsed time to one decimal place
   const playerName = prompt(
     "Herzlichen Glückwunsch! Bitte gib deinen Namen ein:"
