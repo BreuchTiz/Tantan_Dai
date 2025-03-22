@@ -64,6 +64,12 @@ sudoku/
   mongodb://admin:geheim@webtreedesign.de:27012/?authSource=admin
   ```
 
+### 🖱️ Alternative: Lokales Öffnen
+Du kannst das Spiel auch lokal öffnen, indem du die Datei `index.html` im `frontend`-Ordner direkt in einem Browser wie Chrome oder Firefox öffnest:
+1. Navigiere im Datei-Explorer zum `frontend`-Ordner.
+2. Doppelklicke auf die Datei `index.html`.
+3. Das Spiel wird im Standardbrowser geöffnet.
+
 ## 🛠️ Technologien
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js, Express
