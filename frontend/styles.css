@@ -152,21 +152,6 @@ input::-webkit-inner-spin-button {
     margin-bottom: 1em;
   }
   
-  .paypal-donate-button {
-    background-color: #0070ba;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 12px 24px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .paypal-donate-button:hover {
-    background-color: #005c9c;
-  }
-  
   .donation-hint {
     font-size: 0.9em;
     color: #666;
@@ -176,7 +161,7 @@ input::-webkit-inner-spin-button {
 .github-logo-button {
   cursor: pointer;
   border-radius: 10px;
-  height:60px;
+  height:60px !important;
   width: auto;
 }
 

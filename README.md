@@ -38,6 +38,7 @@ Du kannst das Spiel auch lokal öffnen, indem du die Datei `index.html` im `fron
   ```
   mongodb://admin:******@webtreedesign.de:27012/?authSource=admin
   ```
+> **Hinweis**: Datenbank einstellungen nur nodewendig wenn man Frontend und Backend lokal laufen lässt. z.B mit Docker und node. Solange auf die Prod Api zugegriffen wird ist das backend im Ordner völlig egal lol.
 
 ## 🛠️ Technologien
 - **Frontend**: HTML, CSS, JavaScript
@@ -92,7 +93,7 @@ Die `docker-compose.yml`-Datei enthält die Konfiguration für den Nginx-Proxy u
 - `LETSENCRYPT_EMAIL`: E-Mail-Adresse für Let's Encrypt-Benachrichtigungen.
 - `HTTPS_METHOD`: Methode für HTTPS-Weiterleitungen (z. B. `redirect`).
 
-> **Hinweis**: Die vollständige `docker-compose.yml`-Datei wurde nicht bereitgestellt, da sie direkt auf dem Server liegt.
+> **Hinweis**: Die vollständige `docker-compose.yml`-Datei wurde nicht bereitgestellt.
 ## 💡 Nützliche Links
 - [Projekt-Website](https://sudoku.webtreedesign.de)
 - [API](https://sososo.webtreedesign.de/players)
