@@ -125,18 +125,25 @@ input::-webkit-inner-spin-button {
 }
 
 .donation-container {
-    text-align: center;
-    font-family: sans-serif;
-    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .paypal-logo-button{
 
-    img{
-        margin: 10px;
-        padding: 10px;
-        border: lightblue 1px solid;
-        border-radius: 10px;
-    }
-    img:hover{
-        background-color: lightblue;
+        text-align: center;
+        font-family: sans-serif;
+        margin: 2em 0;
+        
+        img {
+            margin: 10px;
+            padding: 10px;
+            border: lightblue 1px solid;
+            border-radius: 10px;
+            height: 60px;
+        }
+        img:hover{
+            background-color: lightblue;
+        }
     }
   }
   
@@ -166,6 +173,16 @@ input::-webkit-inner-spin-button {
     margin-top: 0.5em;
   }
   
+.github-logo-button {
+  cursor: pointer;
+  border-radius: 10px;
+  height:60px;
+  width: auto;
+}
+
+.github-logo-button:hover {
+  background-color: lightblue;
+}
 
 /*
 4. Sudoku-Felder (Eingabefelder)
