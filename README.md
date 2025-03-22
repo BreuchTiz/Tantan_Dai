@@ -87,3 +87,27 @@ Dieses Projekt ist kostenlos nutzbar. Wenn du möchtest, kannst du meine Arbeit 
 
 ## 📜 Lizenz
 Dieses Projekt ist unter der MIT-Lizenz veröffentlicht.
+
+## Sonstiges
+
+### 🌐 SSL-Zertifikat und Nginx Proxy
+Das Projekt verwendet das `jrcs/letsencrypt-nginx-proxy-companion`-Image zusammen mit dem `jwilder/nginx-proxy`-Image, um SSL-Zertifikate automatisch zu generieren und die Dienste über HTTPS bereitzustellen.
+
+#### Docker-Compose-Konfiguration
+Die `docker-compose.yml`-Datei enthält die Konfiguration für den Nginx-Proxy und die Let's Encrypt-Integration. Hier ein Überblick:
+- **Backend**:
+  - Hostname: `sososo.webtreedesign.de`
+  - Port: `3000`
+- **Frontend**:
+  - Hostname: `sudoku.webtreedesign.de`
+  - Port: `8080`
+- **Netzwerk**:
+  - Beide Dienste sind Teil des `nginxproxy`-Netzwerks, das extern definiert ist.
+
+#### Wichtige Umgebungsvariablen
+- `VIRTUAL_HOST`: Domainname des Dienstes.
+- `LETSENCRYPT_HOST`: Domainname für das SSL-Zertifikat.
+- `LETSENCRYPT_EMAIL`: E-Mail-Adresse für Let's Encrypt-Benachrichtigungen.
+- `HTTPS_METHOD`: Methode für HTTPS-Weiterleitungen (z. B. `redirect`).
+
+> **Hinweis**: Die vollständige `docker-compose.yml`-Datei wurde nicht bereitgestellt, da sie direkt auf dem Server liegt.
