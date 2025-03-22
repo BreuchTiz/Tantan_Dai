@@ -192,3 +192,17 @@ input::-webkit-inner-spin-button {
     margin-bottom: 20px; /* Add spacing below the Sudoku board */
   }
 }
+
+/* Media query for screens narrower than 412px */
+@media (max-width: 412px) {
+  .sudoku-container {
+    grid-template-columns: repeat(9, 33px); /* Adjust column size */
+    grid-template-rows: repeat(9, 33px);   /* Adjust row size */
+  }
+
+  .cell {
+    max-width: 33px; /* Adjust cell width */
+    max-height: 33px; /* Adjust cell height */
+    font-size: 18px; /* Adjust font size for smaller cells */
+  }
+}
