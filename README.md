@@ -107,6 +107,7 @@ Dieses Projekt ist kostenlos nutzbar. Wenn du möchtest, kannst du meine Arbeit 
 - Johannes
 - Justin
 - Tizian
+- Tom
 - Walter
 
 ## 📜 Lizenz
