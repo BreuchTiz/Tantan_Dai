@@ -207,3 +207,59 @@ input::-webkit-inner-spin-button {
     font-size: 18px; /* Adjust font size for smaller cells */
   }
 }
+
+.game-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px; /* Increased gap between board and difficulty settings */
+  margin-bottom: 20px;
+  position: relative; /* Added for absolute positioning of difficulty container */
+}
+
+.difficulty-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute; /* Position absolutely within the game container */
+  right: -200px; /* Move it further to the right */
+  top: 0; /* Align with the top of the board */
+}
+
+.difficulty-container label {
+  font-weight: bold;
+  color: #333;
+}
+
+.difficulty-container select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.difficulty-container select:hover {
+  border-color: #666;
+}
+
+.difficulty-container select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Update media query for responsive design */
+@media (max-width: 1026px) {
+  .difficulty-container {
+    position: static; /* Reset position on smaller screens */
+    margin-top: 20px; /* Add spacing when below the board */
+  }
+  
+  .game-container {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: center;
+    gap: 20px;
+  }
+}
