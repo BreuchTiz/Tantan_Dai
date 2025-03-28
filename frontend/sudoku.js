@@ -32,8 +32,8 @@ function generateSudoku() {
 ██████╔╝╚██████╔╝██████╔╝╚█████╔╝██║░╚██╗╚██████╔╝
 ╚═════╝░░╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝░╚═════╝░
     `);
-    console.log("𝕓𝕪: 𝕀𝕋𝔽𝕆𝟚")
-    
+  console.log("𝕓𝕪: 𝕀𝕋𝔽𝕆𝟚")
+
   let board = Array.from({ length: 9 }, () => Array(9).fill("_"));
   fillBoard(board);
   boardCompleted = copyBoard(board);
@@ -121,7 +121,7 @@ function finishGame() {
     score: player1.score,
     time: parseFloat(elapsedTime), // Ensure time is stored as a number
   };
-  fetch("https://sososo.webtreedesign.de/players", {
+  fetch("https://sososo.webtreedesign.de/players", {  //hier die url anpassen wenn sie auf ihr lokakles backend zugreifen wollen Dev: http://localhost:3000/players Prod: https://sososo.webtreedesign.de/players
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -145,7 +145,7 @@ function finishGame() {
  * Refreshes the scoreboard by fetching the latest player data from the server.
  */
 function refreshScoreboard() {
-  fetch("http://localhost:3000/players") //hier die url anpassen wenn sie auf ihr lokakles backend zugreifen wollen Dev: http://localhost:3000/players Prod: https://sososo.webtreedesign.de/players
+  fetch("https://sososo.webtreedesign.de/players") //hier die url anpassen wenn sie auf ihr lokakles backend zugreifen wollen Dev: http://localhost:3000/players Prod: https://sososo.webtreedesign.de/players
     .then((res) => res.json())
     .then((data) => {
       console.log("Aktualisierte Spielerdaten:", data);
@@ -357,7 +357,7 @@ function updateScoreboard(players) {
     else if (index === 2) icon = "🥉 ";
     else icon = "💥 ";
 
-// console.log("player.time: " + player.time);
+    // console.log("player.time: " + player.time);
     // Format time to one decimal place
     const formattedTime = player.time.toFixed(1);
 

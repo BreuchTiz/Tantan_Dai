@@ -1,4 +1,4 @@
-# 🧩 Projekttitel
+# 🧩 Backend
 
 ## 📝 Beschreibung  
 Dieses Projekt läuft mit **Node.js**. Daher ist die Installation von Node.js erforderlich, um es lokal auszuführen und Daten abzurufen oder zu bearbeiten.
@@ -37,6 +37,8 @@ Falls Sie Probleme bei der Installation von Node.js haben, folgen Sie diesen Sch
    node ./api
    ```
 2. 🌐 Greifen Sie auf die Anwendung unter `http://localhost:3000/players` zu.  
+
+
 
 ## 📚 Dokumentation
 
