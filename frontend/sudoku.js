@@ -145,7 +145,7 @@ function finishGame() {
  * Refreshes the scoreboard by fetching the latest player data from the server.
  */
 function refreshScoreboard() {
-  fetch("https://sososo.webtreedesign.de/players")
+  fetch("http://localhost:3000/players") //hier die url anpassen wenn sie auf ihr lokakles backend zugreifen wollen Dev: http://localhost:3000/players Prod: https://sososo.webtreedesign.de/players
     .then((res) => res.json())
     .then((data) => {
       console.log("Aktualisierte Spielerdaten:", data);
