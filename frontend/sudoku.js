@@ -6,9 +6,6 @@ let inputCells = [];
 let timerInterval;
 let startTime;
 
-git config --global user.name "Your Name"
-git config --global user.email "youremail@yourdomain.com"
-
 // Initialization
 document.addEventListener("DOMContentLoaded", generateSudoku);
 
