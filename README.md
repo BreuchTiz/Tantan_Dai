@@ -11,14 +11,13 @@
 - Johannes Winkler  
 - Tom Van Wüllen  
 - Tizian Breuch  
-- Walter Wakentin  
+- Walter Wakentin 
 - Justin Gasch
 
 ---
 
 ## 📚 Inhalt  
-- [Einleitung](#einleitung)  
-- [Ziel](#ziel)  
+- [Einleitung](#einleitung)   
 - [Vorgehensweise](#vorgehensweise)  
 - [Eigene Mitarbeit im Projekt](#eigene-mitarbeit-im-projekt)  
 - [Entwicklungsschritte im Detail](#entwicklungsschritte-im-detail)  
@@ -33,20 +32,19 @@ Ursprünglich war ein 3D-Sudoku geplant, jedoch wurde diese Idee aufgrund der Ko
 
 ---
 
-## 🎯 Ziel  
-### Muss-Features  
+### 🎯 Ziel  
+#### Muss-Features  
 - 🎲 **Dynamische Sudoku-Generierung**: Jedes Spiel ist einzigartig.  
 - 🎚️ **Schwierigkeitsgrad**: Drei Schwierigkeitsstufen.  
 - 📱 **Responsive Design**: Optimiert für mobile Geräte.  
 - 🔄 **Spiel Neustarten**: Beendet die aktuelle Runde und startet ein neues Spiel.  
 
-### Kann-Features  
+#### Kann-Features  
 - 🏆 **Scoreboard**: Sortiert nach Punkten und Zeit.  
 - 🕒 **Timer mit Millisekunden-Präzision**: Verfolge deine Zeit genau.
 
----
 
-## 🛠️ Vorgehensweise  
+### 🛠️ Vorgehensweise  
 1. **HTML/CSS-Struktur** für das Spielfeld erstellen  
 2. **Sudoku-Raster generieren** mit gültiger Lösung  
 3. **Lösbarkeit gewährleisten**, indem Zahlen entfernt werden  
@@ -67,12 +65,12 @@ Ursprünglich war ein 3D-Sudoku geplant, jedoch wurde diese Idee aufgrund der Ko
 
 ### 💻 Implementierung  
 - **Programmiersprache:** JavaScript  
-- **Entwicklungsumgebung:** Visual Studio Code  
-- **Versionierung:** Git
+- **Implementieungsschritte:** Visual Studio Code  
+- **Codebespiele:** Git
 
-### 📁 Implementierungsschritte & Beispiele  
+### 📁 Qualitätssicherung  
 
-#### Beispiel: `createBoard()`
+### Codebeispiele Beispiel: `createBoard()`
 ```js
 function createBoard() {
   const board = document.getElementById('sudoku-board');
