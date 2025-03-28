@@ -1,10 +1,13 @@
 // Global Variables
 let boardCompleted = [];
-let difficulty = 10;
+let difficulty = 40;
 let player1 = createPlayer("Player 1");
 let inputCells = [];
 let timerInterval;
 let startTime;
+
+git config --global user.name "Your Name"
+git config --global user.email "youremail@yourdomain.com"
 
 // Initialization
 document.addEventListener("DOMContentLoaded", generateSudoku);
@@ -386,4 +389,10 @@ function isSudokuSolved() {
     }
   }
   return true;
+}
+
+function updateDifficulty(value) {
+  console.log()
+  difficulty = parseInt(value);
+  generateSudoku();
 }

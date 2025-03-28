@@ -31,7 +31,17 @@
   <body>
     <div class="body-container">
       <h1>Sudoku</h1>
+    <div class="game-container">
       <div class="sudoku-container" id="sudoku-board"></div>
+      <div class="difficulty-container">
+        <label for="difficulty">Schwierigkeit:</label>
+        <select id="difficulty" onchange="updateDifficulty(this.value)">
+          <option value="40">Leicht</option>
+          <option value="45">Mittel</option>
+          <option value="50">Schwer</option>
+        </select>
+      </div>
+    </div>
       <br />
       <br />
       <br />
