@@ -26,7 +26,7 @@
 ---
 
 ## 🧩 Einleitung  
-Dieses Projekt ist ein Sudoku-Spiel, das direkt im Browser gespielt werden kann oder lokal über den Dateiexplorer (`index.html`) aufgerufen werden kann. Es bietet eine dynamische Sudoku-Generierung und ein Scoreboard (das Scoreboard ist nur in Verbindung mit dem Backend verfügbar).  
+Dieses Projekt ist ein Sudoku-Spiel, das direkt im Browser gespielt werden kann(sudoku.webtreedesign.de) oder lokal über den Dateiexplorer (`index.html`) aufgerufen werden kann. Es bietet eine dynamische Sudoku-Generierung und ein Scoreboard (das Scoreboard ist nur in Verbindung mit dem Backend verfügbar).  
 
 Ursprünglich war ein 3D-Sudoku geplant, jedoch wurde diese Idee aufgrund der Komplexität verworfen. Stattdessen wurde ein 2D-Sudoku entwickelt, das später um zusätzliche Features erweitert werden kann.
 
@@ -51,14 +51,16 @@ Ursprünglich war ein 3D-Sudoku geplant, jedoch wurde diese Idee aufgrund der Ko
 4. **Interaktive Spielfelder** mit Benutzereingabe  
 5. **Modulare Funktionen** entwickeln und testen
 
+#### HTML/CSS-Struktur
+Jeder von uns hatte ein grundlayout seiner sudoku generieung erstelen und nach der ersten doppelstudne miteinander abgesprochen, aufgrundlade meiner und walters grund struktur haben wir aufgebaut.
+
 ---
 
 ## 👨‍💻 Eigene Mitarbeit im Projekt
 
 ### 🔄 Projektplanung  
-- Zeitplan festgelegt  
-- Aufgaben aufgeteilt  
-- Meilensteine gesetzt
+- Git verwaltung und versionen
+- frontend: überarbeitung vom board welches zusammen getragen wurde, einfügen der paypal und github section implementation der scoreboard logik
 
 ### 📐 Modellierung  
 - Darstellung der Systemarchitektur (z. B. Klassendiagramm)
