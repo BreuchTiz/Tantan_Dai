@@ -138,6 +138,8 @@ function finishGame() {
         `Spiel beendet! Dein Score: ${player1.score}, Zeit: ${elapsedTime} Sekunden`
       );
       refreshScoreboard();
+      // Reset score when starting a new game
+      player1.score = 0;
     })
     .catch((err) => {
       console.error("Fehler beim Speichern des Spielers:", err);
