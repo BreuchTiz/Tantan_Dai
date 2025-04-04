@@ -89,7 +89,15 @@ function createBoard(board) {
         if (
           !(
             (e.key >= "1" && e.key <= "9") ||
-            ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Delete"].includes(e.key)
+            [
+              "Backspace",
+              "Tab",
+              "ArrowLeft",
+              "ArrowRight",
+              "ArrowUp",
+              "ArrowDown",
+              "Delete",
+            ].includes(e.key)
           )
         ) {
           e.preventDefault();
@@ -105,7 +113,6 @@ function createBoard(board) {
     });
   });
 }
-
 
 /**
  * Handles user input for a Sudoku cell, validates it, and updates the game state.
@@ -223,7 +230,7 @@ function stopTimer() {
  *
  * @param {Array} board - The 2D array representing the Sudoku board.
  */
-  function fillBoard(board) {
+function fillBoard(board) {
   let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -374,32 +381,53 @@ function updateScoreboard(players) {
   const scoreboardList = document.getElementById("scoreboard-list");
   scoreboardList.innerHTML = "";
 
-// Sort by: difficulty (desc), score (desc), time (asc)
-players.sort((a, b) => {
-  if (b.difficulty !== a.difficulty) {
-    return b.difficulty - a.difficulty; // höhere Schwierigkeit zuerst
-  }
-  if (b.score !== a.score) {
-    return b.score - a.score; // höherer Score zuerst
-  }
-  return a.time - b.time; // kürzere Zeit zuerst
-});
+  // Setze missing difficulties auf 0
+  players.forEach((player) => {
+    if (player.difficulty === undefined || player.difficulty === null) {
+      player.difficulty = 0; // für Sortierung
+    }
+  });
+
+  // Sort by: difficulty (desc), score (desc), time (asc)
+  players.sort((a, b) => {
+    if (b.difficulty !== a.difficulty) {
+      return b.difficulty - a.difficulty;
+    }
+    if (b.score !== a.score) {
+      return b.score - a.score;
+    }
+    return a.time - b.time;
+  });
 
   players.forEach((player, index) => {
     const listItem = document.createElement("p");
 
-    // Add icons for the top 3 players
+    // Top 3 Icons
     let icon = "";
     if (index === 0) icon = "👑 ";
     else if (index === 1) icon = "🥈 ";
     else if (index === 2) icon = "🥉 ";
     else icon = "💥 ";
 
-    // console.log("player.time: " + player.time);
-    // Format time to one decimal place
     const formattedTime = player.time.toFixed(1);
 
-    listItem.textContent = `${icon}${player.name}: ${player.score} Punkte, ${formattedTime}s`;
+    // Schwierigkeitssymbol
+    let diffIcon = "";
+    switch (player.difficulty) {
+      case 10:
+        diffIcon = " 🟢"; // leicht
+        break;
+      case 30:
+        diffIcon = " 🟠"; // mittel
+        break;
+      case 50:
+        diffIcon = " 🔴"; // schwer
+        break;
+      default:
+        diffIcon = " ⚪️"; // unbekannt oder 0
+    }
+
+    listItem.textContent = `${icon}${player.name}: ${player.score} Punkte, ${formattedTime}s${diffIcon}`;
     scoreboardList.appendChild(listItem);
   });
 }
@@ -422,7 +450,7 @@ function isSudokuSolved() {
 }
 
 function updateDifficulty(value) {
-  console.log()
+  console.log();
   difficulty = parseInt(value);
   generateSudoku();
 }

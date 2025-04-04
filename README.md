@@ -138,6 +138,86 @@ function solveSudoku(board, callback) {
 }
 ```
 
-## 👨‍💻 Eigene Mitarbeit im Projekt – Vorgehensweise und Arbeitsergebnisse
-### 🔄 Projektplanung  
-### 📐 Modellierung
+# Eigene Mitarbeit im Projekt – Vorgehensweise und Arbeitsergebnisse
+
+## Projektplanung
+Während der Planungsphase habe ich mit dem Team die grundlegenden Anforderungen für das Sudoku-Spiel definiert. Wir haben die Aufgaben nach Interessen und Stärken verteilt. Ich übernahm den Bereich **Backend-Entwicklung**, inklusive Datenbankanbindung und Server-Deployment. Durch eine unerwartete Krankheitsphase habe ich meinen ersten Entwurf der Board-Logik an meine Teammitglieder weitergegeben. Nach meiner Rückkehr stieg ich wieder in die technische Umsetzung ein.
+
+## Modellierung
+Die Architektur des Systems wurde so gestaltet, dass das Frontend über eine REST-API mit dem Backend kommuniziert. Die Daten werden persistent in einer MongoDB-Datenbank gespeichert. Die grobe Struktur lässt sich wie folgt darstellen:
+
+- **Frontend** (HTML, CSS, JavaScript)
+- **Backend** (Node.js, Express)
+- **Datenbank** (MongoDB)
+- **Kommunikation**: HTTP (REST), JSON
+
+## Implementierung
+
+### Verwendete Programmiersprache und Entwicklungsumgebung
+- **Frontend**: JavaScript (Vanilla), HTML, CSS
+- **Backend**: JavaScript mit Node.js und Express
+- **Datenbank**: MongoDB
+- **Entwicklungsumgebung**: Visual Studio Code
+
+### Implementierungsschritte
+1. Entwurf und Implementierung der Funktion `createBoard` im Frontend
+2. Entwicklung eines Node.js-Servers mit REST-Endpunkten
+3. Anbindung an MongoDB zur Speicherung von Spielergebnissen
+4. Deployment des Servers auf einem Webserver
+5. Erweiterung der Scoreboard-Logik zur dynamischen Sortierung nach Schwierigkeit, Score und Zeit
+6. Fehlerbehebung und Codeoptimierung im Gesamtprojekt
+
+## Eigene Codebeispiele mit kurzen Erklärungen
+
+### Backend: Spielergebnisse speichern
+```js
+app.post('/players', express.json(), async (req, res) => {
+  const { name, score, time, difficulty } = req.body;
+  if (!name || score == null || time == null) {
+    return res.status(400).send('Name, Score und Zeit sind erforderlich');
+  }
+  const collection = db.collection('player');
+  const result = await collection.insertOne({ name, score, time: parseFloat(time), difficulty });
+  res.status(201).json(result);
+});
+```
+Dieser Code speichert ein Spielergebnis in der Datenbank. Die Zeit wird dabei als Zahl gespeichert, um später sortieren zu können.
+
+### Frontend: Score an das Backend senden
+```js
+fetch("https://sososo.webtreedesign.de/players", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(playerData),
+})
+```
+Nach Spielende wird der Score mit einem POST-Request an das Backend übertragen.
+
+### Frontend: Scoreboard sortieren
+```js
+players.sort((a, b) => {
+  if (b.difficulty !== a.difficulty) return b.difficulty - a.difficulty;
+  if (b.score !== a.score) return b.score - a.score;
+  return a.time - b.time;
+});
+```
+Diese Logik stellt sicher, dass Spieler mit höherer Schwierigkeit und besseren Zeiten höher gelistet werden.
+
+## Qualitätssicherung
+- Während der Entwicklung habe ich regelmäßig manuell getestet, z. B. durch gezielte Eingaben und Kontrolle der Spielstände
+- Fehler beim Speichern oder Abrufen von Daten wurden über Konsolenausgaben und HTTP-Statuscodes identifiziert
+- Das System wurde mit Testdaten geprüft, um die Sortierlogik im Scoreboard zu validieren
+
+## Entwicklungsschritte für das Sudoku-Spiel
+1. Board-Erstellung mit zufälliger Zahlenverteilung
+2. Entfernen einzelner Zahlen zur Erzeugung des Spielfelds
+3. Dynamisches Erzeugen von Input-Feldern im DOM
+4. Validierung der Benutzereingaben mit sofortigem Feedback
+5. Punktevergabe für korrekte Eingaben, Abzug bei Fehlern
+6. Timer zur Zeitmessung
+7. Abfrage und Speicherung des Spielernamens
+8. Speicherung der Ergebnisse auf dem Server
+9. Sortierung und Anzeige im Scoreboard
+
