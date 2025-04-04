@@ -65,23 +65,47 @@ function createBoard(board) {
       const input = document.createElement("input");
       input.id = `cell-${i}-${j}`;
       input.type = "number";
-      input.min = "1";
-      input.max = "9";
-      input.maxLength = 1;
+      input.min = 1;
+      input.max = 9;
       input.classList.add("cell");
       input.dataset.row = i;
       input.dataset.col = j;
-      input.oninput = function () {
-        handleInput(this, i, j);
-      };
+
+      // Verhindert Eingabe von mehr als einer Ziffer
+      input.addEventListener("input", function () {
+        if (this.value.length > 1) {
+          this.value = this.value[0]; // nur die erste Ziffer behalten
+        }
+
+        // Bei gültiger Eingabe handleInput aufrufen
+        if (/^[1-9]$/.test(this.value)) {
+          handleInput(this, i, j);
+        }
+      });
+
+      // Verhindert, dass man z. B. "e", "+", "-", "." etc. eingibt
+      input.addEventListener("keydown", function (e) {
+        // Erlaubte Tasten: Ziffern, Pfeile, Backspace, Tab
+        if (
+          !(
+            (e.key >= "1" && e.key <= "9") ||
+            ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Delete"].includes(e.key)
+          )
+        ) {
+          e.preventDefault();
+        }
+      });
+
       if (num !== "_") {
         input.value = num;
         input.setAttribute("readonly", true);
       }
+
       container.appendChild(input);
     });
   });
 }
+
 
 /**
  * Handles user input for a Sudoku cell, validates it, and updates the game state.
