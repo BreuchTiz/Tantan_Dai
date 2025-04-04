@@ -67,9 +67,31 @@ Nachdem wir ein Soliden aufbau hatten, haben wir die nächsten Schritte im Entwi
 In regelmäßigen abstimmungen haben wir den aktuellen Stand abgeglichen und neue To-dos verteilt. Bei Verzögerungen wurden Aufgaben flexibel umverteilt.
 
 ### 📐 Modellierung  
-- wir haben unseren ersten entwürfe als mokup genutzt und di ertelen funktiononen in der js datei definiert. dabei haben wir die herz stücke des projkets definiert und fokussiert, dazu gehörten die funktionen:
-generateSudoku fillBoard copyBoard removeNumbers createBoard. ein herzstück dabei ist solveSudoku welche von removeNumbers aufgerüfen wird.
-hier bild einfügen  S
+## 🧠 Technischer Überblick & Aufbau
+
+Wir haben unsere ersten Entwürfe als **Mockups** erstellt, um eine klare Vorstellung vom finalen Layout und Spielfluss zu bekommen. Anschließend wurden die zentralen Funktionalitäten in der Datei `sudoku.js` definiert.
+
+Dabei haben wir uns auf die **Herzstücke** des Projekts konzentriert, insbesondere auf folgende zentrale Funktionen:
+
+- `generateSudoku()`  
+- `fillBoard()`  
+- `copyBoard()`  
+- `removeNumbers()`  
+- `createBoard()`
+
+Ein zentrales Element ist die Funktion **`solveSudoku()`**, die aus `removeNumbers()` aufgerufen wird, um sicherzustellen, dass das generierte Sudoku immer nur **eine eindeutige Lösung** hat.  
+Sie ist essenziell, um ein gültiges Spielfeld zu gewährleisten.
+
+---
+
+## 🔄 Ablauf des Programms
+
+Im Folgenden ist der **grobe Ablauf des Programms** grafisch dargestellt:
+
+![Sudoku Aktivitätsdiagramm](./anlagen/Sudoku_Aktivitätsdiagramm.png)
+
+Das Aktivitätsdiagramm zeigt die Hauptphasen des Spiels – vom Laden des DOMs bis hin zur Benutzerinteraktion, Validierung der Eingaben und dem Abspeichern des Highscores.
+
 
 Die funktionen haben wir 
 ### 💻 Implementierung  
