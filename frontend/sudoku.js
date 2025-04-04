@@ -19,21 +19,25 @@ fetch("https://sososo.webtreedesign.de/players")
     console.error("Fehler beim Laden der Spielerdaten:", err);
   });
 
+function init() {
+  console.log(`
+   
+    ░██████╗██╗░░░██╗██████╗░░█████╗░██╗░░██╗██╗░░░██╗
+    ██╔════╝██║░░░██║██╔══██╗██╔══██╗██║░██╔╝██║░░░██║
+    ╚█████╗░██║░░░██║██║░░██║██║░░██║█████═╝░██║░░░██║
+    ░╚═══██╗██║░░░██║██║░░██║██║░░██║██╔═██╗░██║░░░██║
+    ██████╔╝╚██████╔╝██████╔╝╚█████╔╝██║░╚██╗╚██████╔╝
+    ╚═════╝░░╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝░╚═════╝░
+        `);
+  console.log("𝕓𝕪: 𝕀𝕋𝔽𝕆𝟚");
+
+  generateSudoku();
+}
+
 /**
  * Generates a new Sudoku board, initializes the game, and starts the timer.
  */
 function generateSudoku() {
-  console.log(`
-   
-░██████╗██╗░░░██╗██████╗░░█████╗░██╗░░██╗██╗░░░██╗
-██╔════╝██║░░░██║██╔══██╗██╔══██╗██║░██╔╝██║░░░██║
-╚█████╗░██║░░░██║██║░░██║██║░░██║█████═╝░██║░░░██║
-░╚═══██╗██║░░░██║██║░░██║██║░░██║██╔═██╗░██║░░░██║
-██████╔╝╚██████╔╝██████╔╝╚█████╔╝██║░╚██╗╚██████╔╝
-╚═════╝░░╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝░╚═════╝░
-    `);
-  console.log("𝕓𝕪: 𝕀𝕋𝔽𝕆𝟚");
-
   // Reset score when starting a new game
   player1.score = 0;
 
@@ -124,7 +128,8 @@ function finishGame() {
     score: player1.score,
     time: parseFloat(elapsedTime), // Ensure time is stored as a number
   };
-  fetch("https://sososo.webtreedesign.de/players", {  //hier die url anpassen wenn sie auf ihr lokakles backend zugreifen wollen Dev: http://localhost:3000/players Prod: https://sososo.webtreedesign.de/players
+  fetch("https://sososo.webtreedesign.de/players", {
+    //hier die url anpassen wenn sie auf ihr lokakles backend zugreifen wollen Dev: http://localhost:3000/players Prod: https://sososo.webtreedesign.de/players
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -193,7 +198,7 @@ function stopTimer() {
  *
  * @param {Array} board - The 2D array representing the Sudoku board.
  */
-function fillBoard(board) {
+  function fillBoard(board) {
   let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {

@@ -44,27 +44,33 @@ Ursprünglich war ein 3D-Sudoku geplant, jedoch wurde diese Idee aufgrund der Ko
 - 🕒 **Timer mit Millisekunden-Präzision**: Verfolge deine Zeit genau.
 
 
-### 🛠️ Vorgehensweise  
+### 🛠️ Vorgehensweise 
+Wir erstellen das Spiel Schritt für Schritt, indem wir jede Funktionalität einzeln umsetzen und testen.
+Dabei haben wir uns am **erweiterten Wasserfallmodell** orientiert, bei dem wir einzelne Phasen nacheinander durchlaufen, jedoch auch Rücksprünge bei Bedarf möglich sind.
+
+#### Durchlaufende Phasen:
 1. **HTML/CSS-Struktur** für das Spielfeld erstellen  
 2. **Sudoku-Raster generieren** mit gültiger Lösung  
 3. **Lösbarkeit gewährleisten**, indem Zahlen entfernt werden  
-4. **Interaktive Spielfelder** mit Benutzereingabe  
+4. **Interaktive Spielfelder** mit Benutzereingabe  d
 5. **Modulare Funktionen** entwickeln und testen
 
-#### HTML/CSS-Struktur
-Jeder von uns hatte ein grundlayout seiner sudoku generieung erstelen und nach der ersten doppelstudne miteinander abgesprochen, aufgrundlade meiner und walters grund struktur haben wir aufgebaut.
+Nach einer **Abstimmung im Team** haben wir uns auf einen gemeinsamen Grundbaustein geeinigt bevor wir die Phasen wieder durchlaufen.
+Jeder hat zunächst ein eigenes Konzept eingebracht – das beste Konzept wurde per Abstimmung ausgewählt, anschließend haben wir dieses gemeinsam weiterentwickelt und durch individuelle Verbesserungen ergänzt.
+Nachdem wir ein Soliden aufbau hatten, haben wir die nächsten Schritte im Entwicklungsprozess umgesetzt und ausgebessert.
 
 ---
 
-## 👨‍💻 Eigene Mitarbeit im Projekt
+## 👨‍💻 Eigene Mitarbeit im Projekt – Vorgehensweise und Arbeitsergebnisse 
 
 ### 🔄 Projektplanung  
-- Git verwaltung und versionen
-- frontend: überarbeitung vom board welches zusammen getragen wurde, einfügen der paypal und github section implementation der scoreboard logik
+In regelmäßigen abstimmungen haben wir den aktuellen Stand abgeglichen und neue To-dos verteilt. Bei Verzögerungen wurden Aufgaben flexibel umverteilt.
 
 ### 📐 Modellierung  
-- Darstellung der Systemarchitektur (z. B. Klassendiagramm)
+- wir haben unseren ersten entwürfe als mokup genutzt und di ertelen funktiononen in der js datei definiert. dabei haben wir die herz stücke des projkets definiert und fokussiert, dazu gehörten die funktionen:
+generateSudoku fillBoard copyBoard removeNumbers createBoard. ein herzstück dabei ist solveSudoku welche von removeNumbers aufgerüfen wird. 
 
+Die funktionen haben wir 
 ### 💻 Implementierung  
 - **Programmiersprache:** JavaScript  
 - **Implementieungsschritte:** Visual Studio Code  
