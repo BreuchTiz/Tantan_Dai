@@ -151,6 +151,7 @@ function finishGame() {
     name: playerName,
     score: player1.score,
     time: parseFloat(elapsedTime), // Ensure time is stored as a number
+    difficulty: difficulty,
   };
   fetch("https://sososo.webtreedesign.de/players", {
     //hier die url anpassen wenn sie auf ihr lokakles backend zugreifen wollen Dev: http://localhost:3000/players Prod: https://sososo.webtreedesign.de/players
@@ -373,13 +374,16 @@ function updateScoreboard(players) {
   const scoreboardList = document.getElementById("scoreboard-list");
   scoreboardList.innerHTML = "";
 
-  // Sort players by score in descending order, and by time in ascending order for ties
-  players.sort((a, b) => {
-    if (b.score === a.score) {
-      return a.time - b.time; // Sort by time (ascending) if scores are equal
-    }
-    return b.score - a.score; // Sort by score (descending)
-  });
+// Sort by: difficulty (desc), score (desc), time (asc)
+players.sort((a, b) => {
+  if (b.difficulty !== a.difficulty) {
+    return b.difficulty - a.difficulty; // höhere Schwierigkeit zuerst
+  }
+  if (b.score !== a.score) {
+    return b.score - a.score; // höherer Score zuerst
+  }
+  return a.time - b.time; // kürzere Zeit zuerst
+});
 
   players.forEach((player, index) => {
     const listItem = document.createElement("p");

@@ -34,12 +34,12 @@ app.get('/players', async (req, res) => {
 // API-Route zum Speichern von Spielerdaten
 app.post('/players', express.json(), async (req, res) => {
   try {
-    const { name, score, time } = req.body;
+    const { name, score, time,difficulty } = req.body;
     if (!name || score == null || time == null) {
       return res.status(400).send('Name, Score und Zeit sind erforderlich');
     }
     const collection = db.collection('player');
-    const result = await collection.insertOne({ name, score, time: parseFloat(time) }); // Ensure time is stored as a float
+    const result = await collection.insertOne({ name, score, time: parseFloat(time),difficulty }); // Ensure time is stored as a float
     res.status(201).json(result);
   } catch (err) {
     console.error('❌ Fehler beim Speichern des Spielers:', err);
