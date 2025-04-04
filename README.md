@@ -195,13 +195,50 @@ fetch("https://sososo.webtreedesign.de/players", {
 ```
 Nach Spielende wird der Score mit einem POST-Request an das Backend übertragen.
 
-### Frontend: Scoreboard sortieren
+### Frontend: Scoreboard sortieren und anzeigen
 ```js
-players.sort((a, b) => {
-  if (b.difficulty !== a.difficulty) return b.difficulty - a.difficulty;
-  if (b.score !== a.score) return b.score - a.score;
-  return a.time - b.time;
-});
+  players.sort((a, b) => {
+    if (b.difficulty !== a.difficulty) {
+      return b.difficulty - a.difficulty;
+    }
+    if (b.score !== a.score) {
+      return b.score - a.score;
+    }
+    return a.time - b.time;
+  });
+
+  players.forEach((player, index) => {
+    const listItem = document.createElement("p");
+
+    // Top 3 Icons
+    let icon = "";
+    if (index === 0) icon = "👑 ";
+    else if (index === 1) icon = "🥈 ";
+    else if (index === 2) icon = "🥉 ";
+    else icon = "💥 ";
+
+    const formattedTime = player.time.toFixed(1);
+
+    // Schwierigkeitssymbol
+    let diffIcon = "";
+    switch (player.difficulty) {
+      case 10:
+        diffIcon = " 🟢"; // leicht
+        break;
+      case 30:
+        diffIcon = " 🟠"; // mittel
+        break;
+      case 50:
+        diffIcon = " 🔴"; // schwer
+        break;
+      default:
+        diffIcon = " ⚪️"; // unbekannt oder 0
+    }
+
+    listItem.textContent = `${icon}${player.name}: ${player.score} Punkte, ${formattedTime}s${diffIcon}`;
+    scoreboardList.appendChild(listItem);
+  });
+}
 ```
 Diese Logik stellt sicher, dass Spieler mit höherer Schwierigkeit und besseren Zeiten höher gelistet werden.
 
