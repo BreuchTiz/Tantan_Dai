@@ -1,6 +1,6 @@
 // Global Variables
 let boardCompleted = [];
-let difficulty = 40;
+let difficulty = 10;
 let player1 = createPlayer("Player 1");
 let inputCells = [];
 let timerInterval;
