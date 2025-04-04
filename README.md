@@ -68,7 +68,8 @@ In regelmäßigen abstimmungen haben wir den aktuellen Stand abgeglichen und neu
 
 ### 📐 Modellierung  
 - wir haben unseren ersten entwürfe als mokup genutzt und di ertelen funktiononen in der js datei definiert. dabei haben wir die herz stücke des projkets definiert und fokussiert, dazu gehörten die funktionen:
-generateSudoku fillBoard copyBoard removeNumbers createBoard. ein herzstück dabei ist solveSudoku welche von removeNumbers aufgerüfen wird. 
+generateSudoku fillBoard copyBoard removeNumbers createBoard. ein herzstück dabei ist solveSudoku welche von removeNumbers aufgerüfen wird.
+hier bild einfügen  S
 
 Die funktionen haben wir 
 ### 💻 Implementierung  
