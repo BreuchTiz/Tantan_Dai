@@ -61,13 +61,7 @@ Nachdem wir ein Soliden aufbau hatten, haben wir die nächsten Schritte im Entwi
 
 ---
 
-## 👨‍💻 Eigene Mitarbeit im Projekt – Vorgehensweise und Arbeitsergebnisse 
-
-### 🔄 Projektplanung  
-In regelmäßigen abstimmungen haben wir den aktuellen Stand abgeglichen und neue To-dos verteilt. Bei Verzögerungen wurden Aufgaben flexibel umverteilt.
-
-### 📐 Modellierung  
-## 🧠 Technischer Überblick & Aufbau
+## 👨‍💻 Projekt übersicht
 
 Wir haben unsere ersten Entwürfe als **Mockups** erstellt, um eine klare Vorstellung vom finalen Layout und Spielfluss zu bekommen. Anschließend wurden die zentralen Funktionalitäten in der Datei `sudoku.js` definiert.
 
@@ -82,35 +76,68 @@ Dabei haben wir uns auf die **Herzstücke** des Projekts konzentriert, insbesond
 Ein zentrales Element ist die Funktion **`solveSudoku()`**, die aus `removeNumbers()` aufgerufen wird, um sicherzustellen, dass das generierte Sudoku immer nur **eine eindeutige Lösung** hat.  
 Sie ist essenziell, um ein gültiges Spielfeld zu gewährleisten.
 
----
-
-## 🔄 Ablauf des Programms
+#### 📐 Ablauf des Programms
 
 Im Folgenden ist der **grobe Ablauf des Programms** grafisch dargestellt:
 
 ![Sudoku Aktivitätsdiagramm](./anlagen/Sudoku_Aktivitätsdiagramm.png)
 
-Das Aktivitätsdiagramm zeigt die Hauptphasen des Spiels – vom Laden des DOMs bis hin zur Benutzerinteraktion, Validierung der Eingaben und dem Abspeichern des Highscores.
+Das Aktivitätsdiagramm zeigt die Hauptphasen des Spiels – vom Laden des DOMs bis hin zur Benutzerinteraktion, Validierung der Eingaben und dem Abspeichern des Highscores. 
 
+### <> Codebeispiele Beispiel: `removeNumbers()`
+Diese Funktion entfernt gezielt Zahlen aus dem vollständig gelösten Sudoku-Raster, um ein spielbares Puzzle zu erzeugen. Dabei wird mit Hilfe von `solveSudoku()` überprüft, ob weiterhin **nur eine gültige Lösung** existiert.
 
-Die funktionen haben wir 
-### 💻 Implementierung  
-- **Programmiersprache:** JavaScript  
-- **Implementieungsschritte:** Visual Studio Code  
-- **Codebespiele:** Git
-
-### 📁 Qualitätssicherung  
-
-### Codebeispiele Beispiel: `createBoard()`
 ```js
-function createBoard() {
-  const board = document.getElementById('sudoku-board');
-  for (let row = 0; row < 9; row++) {
-    for (let col = 0; col < 9; col++) {
-      const cell = document.createElement('input');
-      cell.type = 'text';
-      cell.maxLength = 1;
-      board.appendChild(cell);
+function removeNumbers(board, count) {
+  let attempts = count;
+  while (attempts > 0) {
+    let row = Math.floor(Math.random() * 9);
+    let col = Math.floor(Math.random() * 9);
+    while (board[row][col] === "_") {
+      row = Math.floor(Math.random() * 9);
+      col = Math.floor(Math.random() * 9);
+    }
+    let backup = board[row][col];
+    board[row][col] = "_";
+
+    let boardCopy = board.map((row) => [...row]);
+    let solutions = 0;
+    solveSudoku(boardCopy, () => solutions++);
+
+    if (solutions !== 1) {
+      board[row][col] = backup;
+    } else {
+      attempts--;
     }
   }
 }
+```
+
+### <> Codebeispiele Beispiel: `solveSudoku()`
+Eine rekursive Backtracking-Funktion, die das Sudoku vollständig durchläuft und bei jeder vollständigen Lösung einen Callback auslöst.
+
+```js
+function solveSudoku(board, callback) {
+  function solve(row, col) {
+    if (row === 9) {
+      callback();
+      return;
+    }
+    if (col === 9) return solve(row + 1, 0);
+    if (board[row][col] !== "_") return solve(row, col + 1);
+
+    for (let num = 1; num <= 9; num++) {
+      if (isValid(board, row, col, num)) {
+        board[row][col] = num;
+        solve(row, col + 1);
+        board[row][col] = "_";
+      }
+    }
+  }
+  solve(0, 0);
+}
+```
+
+## 👨‍💻 Eigene Mitarbeit im Projekt – Vorgehensweise und Arbeitsergebnisse
+### 🔄 Projektplanung  
+### 📐 Modellierung
