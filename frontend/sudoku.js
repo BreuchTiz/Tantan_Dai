@@ -19,7 +19,11 @@ fetch("https://sososo.webtreedesign.de/players")
     console.error("Fehler beim Laden der Spielerdaten:", err);
   });
 
-function init() {
+
+/**
+ * Generates a new Sudoku board, initializes the game, and starts the timer.
+ */
+function generateSudoku() {
   console.log(`
    
     ░██████╗██╗░░░██╗██████╗░░█████╗░██╗░░██╗██╗░░░██╗
@@ -30,14 +34,6 @@ function init() {
     ╚═════╝░░╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝░╚═════╝░
         `);
   console.log("𝕓𝕪: 𝕀𝕋𝔽𝕆𝟚");
-
-  generateSudoku();
-}
-
-/**
- * Generates a new Sudoku board, initializes the game, and starts the timer.
- */
-function generateSudoku() {
   // Reset score when starting a new game
   player1.score = 0;
 
