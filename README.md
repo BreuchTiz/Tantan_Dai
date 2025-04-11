@@ -18,8 +18,6 @@
 - Walter Wakentin
 - Justin Gasch
 
----
-
 ## 📚 Inhalt
 
 - [Einleitung](#einleitung)
@@ -28,31 +26,33 @@
 - [Entwicklungsschritte im Detail](#entwicklungsschritte-im-detail)
 - [Gesamtergebnis und Fazit](#gesamtergebnis-und-fazit)
 
----
-
 ## 🧩 Einleitung
+
+### Projektbeschreibung
 
 Dieses Projekt ist ein Sudoku-Spiel, das direkt im Browser gespielt werden kann(sudoku.webtreedesign.de) oder lokal über den Dateiexplorer (`index.html`) aufgerufen werden kann. Es bietet eine dynamische Sudoku-Generierung und ein Scoreboard (das Scoreboard ist nur in Verbindung mit dem Backend verfügbar).
 
 Ursprünglich war ein 3D-Sudoku geplant, jedoch wurde diese Idee aufgrund der Komplexität verworfen. Stattdessen wurde ein 2D-Sudoku entwickelt, das später um zusätzliche Features erweitert werden kann.
 
----
-
-### 🎯 Ziel
+### Zielsetzung
 
 #### Muss-Features
 
 - 🎲 **Dynamische Sudoku-Generierung**: Jedes Spiel ist einzigartig.
-- 🎚️ **Schwierigkeitsgrad**: Drei Schwierigkeitsstufen.
+
 - 📱 **Responsive Design**: Optimiert für mobile Geräte.
 - 🔄 **Spiel Neustarten**: Beendet die aktuelle Runde und startet ein neues Spiel.
 
 #### Kann-Features
 
+- 🎚️ **Schwierigkeitsgrad**: Drei Schwierigkeitsstufen.
 - 🏆 **Scoreboard**: Sortiert nach Punkten und Zeit.
 - 🕒 **Timer mit Millisekunden-Präzision**: Verfolge deine Zeit genau.
+- **bakend und Datenbank** : backend als api mit datenbank andbindunng
 
-### 🛠️ Vorgehensweise
+---
+
+## Eigene Mitarbeit im Projekt – Vorgehensweise
 
 Wir erstellen das Spiel Schritt für Schritt, indem wir jede Funktionalität einzeln umsetzen und testen.
 Dabei haben wir uns am **erweiterten Wasserfallmodell** orientiert, bei dem wir einzelne Phasen nacheinander durchlaufen, jedoch auch Rücksprünge bei Bedarf möglich sind.
@@ -69,11 +69,7 @@ Nach einer **Abstimmung im Team** haben wir uns auf einen gemeinsamen Grundbaust
 Jeder hat zunächst ein eigenes Konzept eingebracht – das beste Konzept wurde per Abstimmung ausgewählt, anschließend haben wir dieses gemeinsam weiterentwickelt und durch individuelle Verbesserungen ergänzt.
 Nachdem wir ein Soliden aufbau hatten, haben wir die nächsten Schritte im Entwicklungsprozess umgesetzt und ausgebessert.
 
----
-
-# Eigene Mitarbeit im Projekt – Vorgehensweise
-
-## Zeitplanung
+### Zeitplanung
 
 Phase 1 – Projektstart und Planung (Woche 1-2)
 Teilnahme an der Konzeptionsphase und ersten Teambesprechungen
@@ -103,7 +99,7 @@ Unterstützung bei der Finalisierung der Projektdokumentation
 Phase 5 - Dokumentation (Woche 7-8)
 In den letzten Projektwochen habe ich parallel zur Entwicklungsarbeit mit der Erstellung der Projektdokumentation begonnen. Dabei habe ich besonders meine eigenen Beiträge – etwa die Backend-Entwicklung, den Umgang mit der Krankheitsphase und die technische Umsetzung – detailliert beschrieben. Zusätzlich habe ich Codebeispiele kommentiert, technische Abläufe erklärt und die Architektur des Systems verständlich dargestellt. Ziel war es, die Inhalte klar, nachvollziehbar und praxisnah aufzubereiten.
 
-## Aufgabenverteilung im Team
+### Aufgabenverteilung im Team
 
 Die Aufgaben im Team wurden entsprechend der individuellen Stärken und Interessen verteilt. Trotz klarer Schwerpunkte gab es regelmäßige Zusammenarbeit, insbesondere beim Testen und Optimieren des Spiels.
 
@@ -128,9 +124,9 @@ Alle Teammitglieder
 Testen und Optimieren des gesamten Spiels
 Gemeinsames Debugging und Verbesserung der Nutzererfahrung
 
-# Eigene Mitarbeit im Projekt – Arbeitsergebnisse
+## Eigene Mitarbeit im Projekt – Arbeitsergebnisse
 
-## Modellierung
+### Modellierung
 
 Die Architektur des Systems wurde so gestaltet, dass das Frontend über eine REST-API mit dem Backend kommuniziert. Die Daten werden persistent in einer MongoDB-Datenbank gespeichert. Die grobe Struktur lässt sich wie folgt darstellen:
 
@@ -146,14 +142,14 @@ Da das forntend sehr simpel aufgestellt ist habe ich daz ein wireframe erstellt 
 ![Sudoku Wireframe](./anlagen/Wireframe.png)
 ![Sudoku Produktiv](./anlagen/Produktiv_Screenshot.png)
 
-### Verwendete Programmiersprache
+#### Verwendete Programmiersprache
 
 - **Frontend**: JavaScript (Vanilla), HTML, CSS
 - **Backend**: JavaScript mit Node.js und Express
 - **Datenbank**: MongoDB
 - **Entwicklungsumgebung**: Visual Studio Code
 
-## Implementierung
+### Implementierung
 
 Während der Planungsphase habe ich gemeinsam mit dem Team die grundlegenden Anforderungen für das Sudoku-Spiel definiert. Die Aufgaben wurden nach Interessen und Stärken verteilt. Ich übernahm zunächst die Erstellung der Board-Logik.
 
@@ -173,7 +169,7 @@ Das Backend wurde mit Node.js entwickelt, containerisiert und mithilfe von Docke
 
 Parallel zur Entwicklung des Scoreboards arbeitete Tom an der Integration eines Schwierigkeitsgrad-Features, das ich anschließend in den POST-Requests und der Datenbank ergänzte, sodass die Daten korrekt übermittelt und gespeichert wurden.
 
-### Implementierungsschritte
+#### Implementierungsschritte
 
 1. Entwurf und Implementierung der Funktion `createBoard` im Frontend
 2. Entwicklung eines Node.js-Servers mit REST-Endpunkten
@@ -183,7 +179,7 @@ Parallel zur Entwicklung des Scoreboards arbeitete Tom an der Integration eines 
 6. Fehlerbehebung und Codeoptimierung im Gesamtprojekt
 7. Integration des Schwierigkeitsgrads in Frontend, Backend und Datenbank (gemeinsam mit Tom)
 
-## Qualiatätssicherung
+### Qualiatätssicherung
 
 Die Qualitätssicherung erfolgte im Rahmen der Projektumsetzung hauptsächlich durch manuelle Tests. Ziel war es, sowohl die Funktionalität als auch die Stabilität der Anwendung sicherzustellen.
 
@@ -216,11 +212,10 @@ Kommunikation zwischen Frontend und Backend
 
 Die Qualitätssicherung war ein durchgängiger Bestandteil der gesamten Projektarbeit. Alle Teammitglieder beteiligten sich aktiv durch wiederholtes Testen, Fehlermeldungen und gemeinsames Debugging.
 
+## Gesamtergebnis und Fazit
 
-# Gesamtergebnis und Fazit
+### Arbeitsergebnisse und Evaluation
 
-
-## Arbeitsergebnisse und Evaluation
 Das Projektziel, ein vollständig spielbares und dynamisch generiertes Sudoku-Spiel mit optionalem Online-Scoreboard, wurde erfolgreich erreicht. Die Anwendung ist funktional, benutzerfreundlich und responsiv gestaltet. Die dynamische Sudoku-Generierung, die Eingabemöglichkeiten sowie die Punkte- und Zeitmessung funktionieren zuverlässig und nachvollziehbar.
 
 Besonders hervorzuheben ist die reibungslose Integration des Backends mit Datenbankanbindung und REST-API, was eine Speicherung und Auswertung von Spielergebnissen ermöglicht. Auch die nachträglich umgesetzte Sortierlogik im Scoreboard wurde erfolgreich realisiert und trägt zur Spielmotivation bei.
@@ -229,9 +224,8 @@ Das Backend wurde mithilfe von Docker containerisiert und über einen Webserver 
 
 Im Laufe des Projekts wurden verschiedene Herausforderungen gelöst, z. B. bei der Validierung der Spielfelder, dem Zusammenspiel von Frontend und Backend sowie beim Deployment. Insgesamt entspricht das Endergebnis den Anforderungen, übertrifft sie in einigen Bereichen (z. B. durch das Scoreboard-Feature) sogar.
 
+### Reflexion
 
-
-## Reflexion
 Rückblickend hat das Projekt nicht nur meine technischen Fähigkeiten im Bereich Webentwicklung, API-Design und Datenbankanbindung gestärkt, sondern mir auch gezeigt, wie wichtig strukturierte Teamarbeit und klare Kommunikation sind. Die krankheitsbedingte Unterbrechung stellte eine Herausforderung dar, konnte aber durch gute Dokumentation und Zusammenarbeit im Team erfolgreich kompensiert werden.
 
 Besonders bewährt hat sich in unserem Projekt das erweiterte Wasserfallmodell. Da wir viele Entwicklungsschritte mehrfach durchlaufen mussten – insbesondere zwischen Design, Implementierung und Test – war diese Vorgehensweise genau richtig für uns. Häufige Rücksprünge und wiederholte Überarbeitungen einzelner Komponenten (z. B. der Spiellogik oder des Scoreboards) waren notwendig, um ein stabiles und funktionierendes Ergebnis zu erzielen. Das Modell gab uns dabei eine klare Struktur, ohne uns in der Flexibilität einzuschränken.
@@ -241,4 +235,3 @@ Ein weiterer wichtiger Aspekt war die Versionsverwaltung. Für ein teamorientier
 Durch die intensive Arbeit am Backend, insbesondere am Scoreboard-System, habe ich viel über den praktischen Einsatz von Node.js, Express, MongoDB, Docker und Deployment gelernt. Auch die Zusammenarbeit mit dem Frontend-Team hat mir verdeutlicht, wie wichtig Schnittstellen-Definitionen und saubere Datenflüsse sind.
 
 Insgesamt war das Projekt eine wertvolle Erfahrung – sowohl fachlich als auch im Hinblick auf Teamarbeit, Selbstorganisation, Versionskontrolle und Problemlösung. Für zukünftige Projekte nehme ich mit, wie wichtig frühzeitige Planung, kontinuierliches Testen, technische Absicherung und eine klare Aufgabenverteilung sind.
-
