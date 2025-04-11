@@ -9,11 +9,7 @@
 **Sudoku 2D**
 
 ## Teammitglieder
-Gesamtergebnis und Fazit
 
-🔄 Einleitung
-
-📖 Projektbeschreibung
 - Johannes Winkler
 - Tom Van Wüllen
 - Tizian Breuch
@@ -23,18 +19,18 @@ Gesamtergebnis und Fazit
 ## Inhalt
 
 - [Einleitung](#einleitung)
-- [Eigene Mitarbeit im Projekt - Vorgehensweise](#eigene-mitarbeit-im-projekt-vorgehensweise)
-- [Eigene Mitarbeit im Projekt - Arbeitsergebnisse](#eigene-mitarbeit-im-projekt-arbeitsergebnisse)
+- [Vorgehensweise](#vorgehensweise)
+- [Eigene Mitarbeit im Projekt](#eigene-mitarbeit-im-projekt)
+- [Entwicklungsschritte im Detail](#entwicklungsschritte-im-detail)
 - [Gesamtergebnis und Fazit](#gesamtergebnis-und-fazit)
 
-## 🔄 Einleitung
+## Einleitung
 
-### 📖 Projektbeschreibung
+### Projektbeschreibung
 
-Dieses Projekt ist ein Sudoku-Spiel, das direkt im Browser gespielt werden kann ([sudoku.webtreedesign.de](https://sudoku.webtreedesign.de)) oder lokal über den Dateiexplorer (`index.html`) aufgerufen werden kann. Es bietet eine dynamische Sudoku-Generierung und ein Scoreboard (nur in Verbindung mit dem Backend verfügbar).
+Dieses Projekt ist ein Sudoku-Spiel, das direkt im Browser gespielt werden kann(sudoku.webtreedesign.de) oder lokal über den Dateiexplorer (`index.html`) aufgerufen werden kann. Es bietet eine dynamische Sudoku-Generierung und ein Scoreboard (das Scoreboard ist nur in Verbindung mit dem Backend verfügbar).
 
 Ursprünglich war ein 3D-Sudoku geplant, jedoch wurde diese Idee aufgrund der Komplexität verworfen. Stattdessen wurde ein 2D-Sudoku entwickelt, das später um zusätzliche Features erweitert werden kann.
-
 
 ### Zielsetzung
 

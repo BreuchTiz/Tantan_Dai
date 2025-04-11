@@ -62,8 +62,8 @@ Falls Sie Probleme bei der Installation von Node.js haben, folgen Sie diesen Sch
   - 💡 Beispielantwort:  
     ```json
     [
-      { "name": "John", "score": 100, "time": 120.5 },
-      { "name": "Jane", "score": 150, "time": 110.3 }
+      { "name": "John", "score": 100, "time": 120.5 , "difficulty": 50},
+      { "name": "Jane", "score": 150, "time": 110.3, "difficulty": 50 }
     ]
     ```
 
@@ -74,7 +74,8 @@ Falls Sie Probleme bei der Installation von Node.js haben, folgen Sie diesen Sch
     {
       "name": "John",
       "score": 100,
-      "time": 120.5
+      "time": 120.5,
+      "difficulty": 50
     }
     ```  
   - ✅ Beispielantwort:  
@@ -102,9 +103,3 @@ Falls Sie die MongoDB-Daten einsehen möchten, laden Sie [MongoDB Compass](https
 ```
 mongodb://admin:******@webtreedesign.de:27012/?authSource=admin
 ```  
-
-🔑 Das Passwort für den Connection-String ist auf Anfrage erhältlich.  
-🖥️ Alternativ können Sie MongoDB lokal installieren, um die Datenbank lokal zu nutzen.
-
-## 📄 Lizenz  
-Fügen Sie Lizenzinformationen hinzu, falls zutreffend.
