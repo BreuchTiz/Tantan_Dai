@@ -11,9 +11,7 @@
 ## Teammitglieder
 Gesamtergebnis und Fazit
 
-🔄 Einleitung
-
-📖 Projektbeschreibung
+Projektbeschreibung
 - Johannes Winkler
 - Tom Van Wüllen
 - Tizian Breuch
@@ -27,9 +25,9 @@ Gesamtergebnis und Fazit
 - [Eigene Mitarbeit im Projekt - Arbeitsergebnisse](#eigene-mitarbeit-im-projekt-arbeitsergebnisse)
 - [Gesamtergebnis und Fazit](#gesamtergebnis-und-fazit)
 
-## 🔄 Einleitung
+##  Einleitung
 
-### 📖 Projektbeschreibung
+### Projektbeschreibung
 
 Dieses Projekt ist ein Sudoku-Spiel, das direkt im Browser gespielt werden kann ([sudoku.webtreedesign.de](https://sudoku.webtreedesign.de)) oder lokal über den Dateiexplorer (`index.html`) aufgerufen werden kann. Es bietet eine dynamische Sudoku-Generierung und ein Scoreboard (nur in Verbindung mit dem Backend verfügbar).
 
